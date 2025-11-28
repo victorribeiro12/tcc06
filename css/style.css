@@ -1,404 +1,317 @@
-/* ================================================= */
-/* 1. VARIÁVEIS CSS E DEFINIÇÕES PADRÃO (:ROOT)      */
-/* (O Padrão é o Tema Escuro/Sistema)             */
-/* ================================================= */
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&display=swap');
 
-:root {
-    /* --- CORES BASE GLOBAIS (Padrão: Tema Escuro Suave) --- */
-    --cor-fundo-principal: #1f1f1f;    /* Fundo da página (bg-body) */
-    --cor-fundo-secundario: #3b3b3b;   /* Fundo da Top Bar/Header */
-    --cor-fundo-card: #2c2c2c;         /* Fundo de Cards e Elementos Secundários */
-    --cor-fundo-footer: #2d2d2d;       /* Fundo do Rodapé */
-    
-    --cor-texto-principal: #ffffff;    /* Texto principal (text-primary) */
-    --cor-texto-secundario: #b8b8b8;   /* Texto secundário (text-secondary) */
-    --cor-texto-sidebar: #ffffff;      /* Cor do texto dentro da Sidebar (logo span, links) */
-    
-    /* --- VARIÁVEIS DE DESTAQUE (CUSTOMIZÁVEIS POR TEMA) --- */
-    --cor-destaque-primaria: #D13438;  /* Cor de destaque principal (ex: Bordas, Hover - Usando o Red do seu CSS original) */
-    --cor-destaque-secundaria: #FFB900;/* Laranja/Amarelo (Cor alternativa, Top Bar SENAI) */
-    --cor-borda-item: #555555;         /* Borda padrão de Cards/Itens */
-
-    /* --- UTILIDADES E SCROLLBAR --- */
-    --bg-hover: #4e4e4e;               /* Cor de fundo no hover de itens */
-    --bg-active: #666666;              /* Cor de fundo ativo */
-    
-    --card-shadow: rgba(0, 0, 0, 0.4);  /* Sombra do card padrão */
-    --card-shadow-hover: rgba(0, 0, 0, 0.6); /* Sombra do card no hover */
-    
-    --scrollbar-track: #2d2d2d;
-    --scrollbar-thumb: #666666;
-    --scrollbar-thumb-hover: #888888;
+@font-face {
+  font-family: 'Blanka';
+  src: url('../fonts/blanka-webfont.woff2') format('woff2'),
+       url('../fonts/blanka-webfont.woff') format('woff'),
+       url('../fonts/blanka.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* ================================================= */
-/* 2. CLASSES DE TEMAS ESPECÍFICOS (CORREÇÃO DE CORES)*/
-/* ================================================= */
-
-/* --- TEMA CLARO (CLASSE: tema-claro) - REQUISITOS SENAI --- */
-.tema-claro {
-    /* Fundo e Textos Invertidos */
-    --cor-fundo-principal: #f0f0f0;    
-    --cor-fundo-secundario: #ffffff;   
-    --cor-fundo-card: #ffffff;
-    --cor-fundo-footer: #e5e5e5;       
-    
-    --cor-texto-principal: #1f2937;
-    --cor-texto-secundario: #6b7280;
-    --cor-texto-sidebar: #1f2937;     /* Texto da Sidebar escuro */
-    
-    /* Utilidades claras */
-    --bg-hover: #f9fafb;
-    --bg-active: #f3f4f6;
-    --card-shadow: rgba(0, 0, 0, 0.1);
-    --card-shadow-hover: rgba(0, 0, 0, 0.2);
-
-    /* Scrollbar */
-    --scrollbar-track: #f0f0f0;
-    --scrollbar-thumb: #c0c0c0;
-    --scrollbar-thumb-hover: #a0a0a0;
-
-    /* REQUERIMENTO SENAI: Borda Azul e Topbar Laranja */
-    --cor-borda-item: #0078D4; 
-    --cor-destaque-secundaria: #003cff; /* Azul SENAI */
-    --cor-destaque-primaria: #007bff; /* Azul para hover/active */
-}
-
-/* --- DEMAIS TEMAS (Apenas Destaque Primário muda) --- */
-.tema-azul-ceu { --cor-destaque-primaria: #55cffa; }
-.tema-verde-agua { --cor-destaque-primaria: #8AF2D1; }
-.tema-rosa-claro { --cor-destaque-primaria: #F4C0E0; }
-.tema-magenta { --cor-destaque-primaria: #E3008C; }
-.tema-amarelo { --cor-destaque-primaria: #FFB900; }
-.tema-azul-edge { --cor-destaque-primaria: #0078D4; }
-.tema-roxo { --cor-destaque-primaria: #8E41B5; }
-.tema-vermelho { --cor-destaque-primaria: #D13438; }
-.tema-verde { --cor-destaque-primaria: #107C10; }
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Fontes (Inalteradas) */
-@font-face {
-    font-family: 'KGSecondChancesSolid';
-    src: url('../fontes/KGPerfectPenmanship.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Corpta;
-    src: url('../fontes/Corpta\ DEMO.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Chopsic;
-    src: url('../fontes/Chopsic.otf') format('opentype');
-    font-weight: normal;
-    font-weight: normal;
-}
-
-
 body {
-    background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-principal);
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    background-color: #111; 
 }
-
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover);
-}
-
 
 header {
-    background-color: var(--cor-fundo-secundario);
-    padding: 20px 40px;
-    display: flex;
-    flex-direction: column;
-    /* Usando sombra adaptativa, ajustada no tema claro/escuro */
-    box-shadow: 0 2px 10px var(--card-shadow); 
-    position: sticky;
-    top: 0;
-    z-index: 1001;
-    font-family: 'Chopisc', sans-serif;
-    font-weight: normal;
-    transition: background-color 0.3s ease;
-   
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-.header-top {
+.nav {
+    max-width: 1100px; 
+    width: 95%; 
+    margin: 0 auto; 
+    background-color: rgba(40, 40, 40, 0.7); 
+    border-radius: 50px; 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    filter: blur(22);
+    padding: 12px 30px; 
 }
 
-.header2{
-    filter: blur(0.3px);
-    border-radius: 66px;
-    opacity: 0.91;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.user-name {
-    color: var(--cor-texto-principal); 
-    font-family: 'Corpta', sans-serif;
-    font-weight: 500;
-}
-
-.user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.banner {
-    width: 100%;
-    height: 250px;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-}
-
-.banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-header h1 {
-    font-family: 'Corpta', sans-serif;
-    font-size: 28px;
-    color: var(--cor-texto-secundario); /* Alterado de --text-secondary */
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-header h1 img {
-    width: 55px;
-    height: 55px;
-}
-
-.page-content {
-    margin-left: 70px;
-    transition: margin-left 0.3s ease;
-
-}
-
-main {
-    background-color: transparent;
-    padding: 40px;
-}
-
-/* Logo */
 .logo {
-    margin: 10px;
     display: flex;
-    justify-content: left;
     align-items: center;
-    margin-bottom: 20px;
-    gap: 10px;
 }
 
 .logo img {
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    height: 30px;
+    margin-right: 10px;
 }
 
-.logo:hover img {
-    transform: scale(1.1);
+#autocademy {
+    font-family: 'Blanka', sans-serif;
+    font-size: 1.4rem;
+    color: white;
+    letter-spacing: 1px;
 }
 
-.logo span {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    color: var(--cor-texto-sidebar); /* Alterado de 'white' */
-    font-size: 18px;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.topbar-left:hover .logo span {
-    opacity: 1;
-}
-
-/* Top Bar Lateral (Sidebar) - AQUI ESTÁ O ALARANJADO DO SENAI */
-.topbar-left {
-    border: none; /* Removido border: #000000; que é inválido */
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 70px;
-    /* Fundo padrão. Será sobrescrito pela classe .tema-claro */
-    background-color: var(--cor-fundo-secundario); 
+.nav-links ul {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 20px 0;
-    transition: width 0.3s ease, background-color 0.3s ease;
-    overflow: hidden;
-    z-index: 1002;
-    /* Usando cores de borda para serem ajustadas pelo tema */
-    border-bottom: 2px solid var(--cor-destaque-primaria); /* Alterado de rgb(202, 71, 71) */
-    border-right: transparent
-}
-
-/* Ativa o fundo laranja da sidebar no Tema Claro */
-.tema-claro .topbar-left {
-    background-color: var(--cor-destaque-secundaria); /* Laranja SENAI */
-}
-
-.topbar-left:hover {
-    width: 250px;
-}
-
-.topbar-left:hover ~ .page-content {
-    margin-left: 250px;
-}
-
-.topbar-left > div:not(.logo) {
-    text-decoration: none;
-    color: var(--cor-texto-sidebar); /* Alterado de 'white' */
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 12px 15px;
-    margin: 0 10px;
-    display: flex;
+    list-style-type: none;
     align-items: center;
-    gap: 20px;
-    white-space: nowrap;
-    cursor: pointer;
-    border-radius: 32px;
-    border: 2px solid transparent;
 }
 
-.topbar-left > div:not(.logo) img {
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+.nav-links li {
+    margin-left: 30px;
 }
 
-.topbar-left > div:not(.logo):hover {
-    background-color: transparent;
-    border: 2px solid var(--cor-destaque-primaria); /* Alterado de 'red' */
-    border-radius: 32px;
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.topbar-left > div.active {
-    background-color: var(--bg-active); /* Alterado de rgb(66, 65, 65) */
-    border-radius: 32px;
+.nav-links a:hover {
+    color: #f32222;
 }
 
-.topbar-left > div:not(.logo) span {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.nav-links a.btn-entrar {
+    background-color: #770d05;
+    padding: 8px 18px;
+    border-radius: 50px; 
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.topbar-left:hover > div:not(.logo) span {
-    opacity: 1;
-    color: var(--cor-texto-sidebar); /* Alterado de 'white' */
+.nav-links a.btn-entrar:hover {
+    background-color: #eb4034;
+    color: white;
+    box-shadow: 0 0 15px 5px rgb(196, 40, 1); 
+    text-shadow: 0 0 10px rgb(196, 40, 1);
 }
 
-.topbar-left > div:not(.logo):hover img {
-    transform: scale(1.2);
-}
-
-/* Matérias Grid */
-.materias {
-    width: 100%;
-    padding: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    color: var(--cor-texto-principal); /* Alterado de --text-primary */
-}
-
-.materia-card {
-    border: 2px solid var(--cor-borda-item); /* Alterado de 'black' - AQUI É A BORDA AZUL DO SENAI! */
-    border-radius: 16px;
-    box-shadow: 0 4px 12px var(--card-shadow);
-    position: relative;
-    overflow: hidden;
+main {
+    height: 100vh; 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
-    cursor: pointer;
-    min-height: 280px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: card-fade-in 0.6s ease-out forwards;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
 }
 
-/* Keyframes (Inalterados, usam transparência) */
-@keyframes card-fade-in {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.materia-card:nth-child(1) { animation-delay: 0.1s; }
-.materia-card:nth-child(2) { animation-delay: 0.2s; }
-.materia-card:nth-child(3) { animation-delay: 0.3s; }
-.materia-card:nth-child(4) { animation-delay: 0.4s; }
-.materia-card:nth-child(5) { animation-delay: 0.5s; }
-.materia-card:nth-child(6) { animation-delay: 0.6s; }
-.materia-card:nth-child(7) { animation-delay: 0.7s; }
-.materia-card:nth-child(8) { animation-delay: 0.8s; }
-.materia-card:nth-child(9) { animation-delay: 0.9s; }
-
-.materia-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px var(--card-shadow-hover);
+.inicio-texto h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-family: 'Blanka', sans-serif;
 }
 
-/* Background Images (Inalterados) */
-.materia1 { background-image: url(./imagens/banner.png); }
-/* ... (demais .materiaN) ... */
+.inicio-texto h4 {
+    font-size: 1.25rem;
+    color: #ccc;
+    font-weight: normal;
+}
 
-.card-link {
-    display: block;
+#subtitulo-inicio {
+    color: rgba(255, 82, 82, 0.7);
+    text-shadow: 0px 1px #a71c03;
+    font-size: 1.3rem;
+}
+
+.video-fundo {
+    position: fixed; 
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    text-decoration: none;
-    color: inherit;
+    object-fit: cover; 
+    filter: blur(2px); 
+    opacity: 0.70; 
+    z-index: -1; 
+}
+
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 40px; 
+    left: 50%;
+    animation: bounceDown 2s infinite ease-in-out;
+}
+
+.scroll-down-arrow span {
+    display: block;
+    width: 22px;
+    height: 22px;
+    border-right: 3px solid rgba(255, 82, 82, 0.7); 
+    border-bottom: 3px solid rgba(255, 82, 82, 0.7); 
+    transform: rotate(45deg);
+}
+
+@keyframes bounceDown {
+    0%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    50% {
+        transform: translateY(15px) translateX(-50%);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+span #sobre {
+    color: rgba(255, 82, 82, 0.7);
+}
+
+#sobre {
+    height: auto;
+    min-height: 100vh;
+    padding: 100px 50px 50px 50px;
+}
+
+#sobre > h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#subtitulo-sobre {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+
+.conteiner-sobre {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #1d1c1c;
+    width: 700px;
+    padding: 50px;
+    border-radius: 20px; 
+    border: 2px solid transparent; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.conteiner-sobre::before,
+.conteiner-sobre::after,
+.conteiner-sobre .inner-border-left,
+.conteiner-sobre .inner-border-right {
+    content: '';
+    position: absolute;
+    background-color: rgb(196, 40, 1);
+    z-index: 2;
+}
+
+.conteiner-sobre::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    animation: moveLineTop 3s linear infinite;
+}
+
+.conteiner-sobre::after {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    animation: moveLineBottom 3s linear infinite;
+    animation-delay: 1.5s;
+}
+
+.conteiner-sobre .inner-border-left {
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    animation: moveLineLeft 3s linear infinite;
+    animation-delay: 2.25s;
+}
+
+.conteiner-sobre .inner-border-right {
+    bottom: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    animation: moveLineRight 3s linear infinite;
+    animation-delay: 0.75s;
+}
+
+.conteiner-sobre h1 {
+    font-size: 2rem;
     position: relative;
+    z-index: 3;
+}
+
+.conteiner-sobre p {
+    max-width: 700px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    line-height: 1.7;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 3;
+}
+
+#cursos-secao {
+    height: auto;
+    min-height: 100vh; 
+    padding: 100px 0;
+    background-color: #111;
+    position: relative;
+    overflow: hidden;
+    display: block; 
+    text-align: center;
+}
+
+#cursos-secao .secao-titulo {
+    font-size: 2.5rem;
+    font-family: 'Blanka', sans-serif;
+    color: white;
+    margin-bottom: 50px;
+}
+
+#cursos-secao .course-carousel {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: visible; 
+}
+
+.course-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 350px; 
+    background-color: #2a2a2a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1;
+}
+
+.course-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    z-index: 10; 
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease;
 }
 
 .card-content-base {
@@ -407,52 +320,430 @@ main {
     left: 0;
     width: 100%;
     padding: 20px;
-    /* Transição de fundo usa o preto, que funciona bem em qualquer tema */
-    background: linear-gradient(to top, #000000, transparent); 
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     z-index: 2;
-    transition: background 0.3s ease;
+    transition: opacity 0.4s ease;
 }
 
-.card-content-base h2 {
-    font-family: 'Chopsic', sans-serif;
-    font-size: 1.5rem;
-    color: var(--cor-texto-principal); /* Alterado de 'white' */
+.card-content-base h4 {
+    font-family: 'Exo 2', sans-serif; 
+    font-weight: 600; 
+    font-size: 1.4rem; 
+    color: white;
     margin: 0;
-    font-weight: normal;
+    letter-spacing: 0.5px; 
 }
 
-/* Se você ainda usar a classe light-mode, sobrescreve */
-body.light-mode .card-content-base h2 {
-    color: #1d1d1f;
-}
-
-/* Footer */
-footer {
-    background-color: var(--cor-fundo-footer); /* Alterado de #2d2d2d */
+.card-content-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     padding: 20px;
-    color: var(--cor-texto-principal); /* Alterado de --text-primary */
+    background-color: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-family: 'Corpta', sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 3;
 }
 
-/* Media Queries (Inalteradas) */
-@media (max-width: 1200px) {
-    .materias {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.course-card:hover .card-content-hover {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+.course-card:hover .card-content-base {
+    opacity: 0;
+}
+
+.card-content-hover p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.btn-inscrever {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #d93025; 
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-inscrever:hover {
+    background-color: #e64a3e;
+}
+
+#cursos-secao .swiper-button-prev,
+#cursos-secao .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    --swiper-navigation-color: #ffffff;
+    --swiper-navigation-size: 22px;
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    margin-top: 0; 
+    
+}
+
+#cursos-secao:hover .swiper-button-prev,
+#cursos-secao:hover .swiper-button-next {
+    opacity: 1;
+}
+
+#cursos-secao .swiper-button-prev {
+    left: 0px; 
+}
+#cursos-secao .swiper-button-next {
+    right: 0px; 
 }
 
 @media (max-width: 768px) {
-    .materias {
-        grid-template-columns: 1fr;
+    #cursos-secao .swiper-button-prev {
+        left: 0; 
     }
-
-    .page-content {
-        margin-left: 70px;
+    #cursos-secao .swiper-button-next {
+        right: 0; 
     }
+}
 
-    .topbar-left:hover~.page-content {
-        margin-left: 70px;
+@keyframes moveLineTop {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes moveLineRight {
+    0% { transform: translateY(-100%); }
+    50% { transform: translateY(0%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes moveLineBottom {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes moveLineLeft {
+    0% { transform: translateY(100%); }
+    50% { transform: translateY(0%); }
+    100% { transform: translateY(-100%); }
+}
+
+:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.swiper-slide-active:focus-visible,
+.swiper-slide:focus-visible,
+.swiper:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.main-login-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    position: relative;
+    overflow: hidden; 
+}
+
+.form-bg-logo {
+    position: absolute;
+    z-index: 1;
+    width: 800px;
+    height: 800px;
+    object-fit: contain;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.form-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px; 
+    background-color: rgba(40, 40, 40, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+.form-wrapper h2 {
+    font-family: 'Blanka', sans-serif;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.form-wrapper label {
+    display: block; 
+    text-align: left;
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper input[type="email"],
+.form-wrapper input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white; 
+    font-size: 1rem;
+}
+
+.form-wrapper button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background-color: #b0b0b0;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-wrapper button[type="submit"]:hover {
+    background-color: #ffffff;
+}
+
+.form-logo-text {
+    margin-top: 30px;
+    opacity: 1; 
+}
+
+.form-wrapper p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.form-wrapper p a {
+    color: #e9661a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-wrapper p a:hover {
+    text-decoration: underline;
+}
+
+.nome-usuario:hover {
+    color: rgb(196, 40, 1);
+    cursor: pointer;
+}
+
+.form-wrapper.form-inscricao {
+    max-width: 900px; 
+    width: 95%; 
+    padding: 40px; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(40, 40, 40, 0.7); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+}
+
+.form-wrapper.form-inscricao h2 {
+    font-size: 2.2rem; 
+    margin-bottom: 25px; 
+}
+
+.form-wrapper.form-inscricao h2 span {
+    font-family: 'Exo 2', sans-serif; 
+    font-weight: 600;
+    font-size: 1.6rem; 
+    color: #e9661a; 
+    display: block;
+    margin-top: 5px;
+}
+
+.form-wrapper.form-inscricao form {
+    width: 100%; 
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: center; 
+    width: 100%;
+}
+
+.form-group {
+    flex: 1 1 calc(33.333% - 20px); 
+    min-width: 200px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left; 
+}
+
+.form-group.full-width {
+    flex-basis: 100%; 
+    min-width: unset; 
+}
+
+.form-group label {
+    margin-bottom: 8px; 
+    font-size: 0.95rem; 
+    color: #bbb; 
+}
+
+.form-wrapper.form-inscricao input,
+.form-wrapper.form-inscricao button {
+    width: 100%;
+    padding: 12px 18px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.35); 
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-wrapper.form-inscricao input:focus {
+    outline: none;
+    border-color: #e9661a; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.form-wrapper.form-inscricao input::placeholder {
+    color: #888;
+}
+
+.form-wrapper.form-inscricao input[type="date"] {
+    width: 100%;
+    padding: 10.5px 15px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.form-wrapper.form-inscricao button[type="submit"] {
+    margin-top: 30px;
+    background-color: #d93025;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px rgba(217, 48, 37, 0.4);
+}
+
+.form-wrapper.form-inscricao button[type="submit"]:hover {
+    background-color: #e64a3e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 48, 37, 0.6);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+    overflow-y: auto;
+    padding: 40px 0;
+}
+
+.modal-content {
+    position: relative;
+    z-index: 9999;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem; 
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    z-index: 10000; 
+}
+
+.modal-close:hover {
+    color: white;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .form-wrapper.form-inscricao {
+        padding: 30px;
+    }
+    .form-group {
+        flex: 1 1 calc(50% - 10px); 
+    }
+    .form-wrapper.form-inscricao h2 {
+        font-size: 1.8rem;
+    }
+    .form-wrapper.form-inscricao h2 span {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-wrapper.form-inscricao {
+        padding: 20px;
+    }
+    .form-group {
+        flex: 1 1 100%; 
+    }
+    .form-wrapper.form-inscricao h2 {
+        font-size: 1.5rem;
+    }
+    .form-wrapper.form-inscricao h2 span {
+        font-size: 1.1rem;
     }
 }
